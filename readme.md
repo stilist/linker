@@ -6,3 +6,5 @@
 1. `./bin/cli build demo`
 1. `./bin/cli publish demo`
 1. `open public/demo/index.html`
+
+[Live example](http://www.yougottaclickthis.link/)
