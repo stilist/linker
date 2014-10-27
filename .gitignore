@@ -1,0 +1,10 @@
+.DS_Store
+
+config/
+data/
+public/
+src/*.html
+!src/default.html
+
+.bundle/
+vendor/gems/

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <meta description="{{description}}">
+
+    <link rel="stylesheet" href="application.css">
+  </head>
+
+  <body>
+    <header>
+      <h1 id="page-title">{{title}}</h1>
+    </header>
+
+    {{#if current_link}}
+    <article id="currentLink">
+      <h1>
+        <a href="{{current_link.url}}" id="currentLink-url">{{current_link.url}}</a>
+      </h1>
+
+      {{#if current_link.description}}
+      <p id="currentLink-description">{{current_link.description}}</p>
+      {{/if}}
+    </article>
+    {{else}}
+    <section id="currentLink" class="is-empty">
+      nawp :(
+    </section>
+    {{/if}}
+
+    <section id="embedWrapper"></section>
+
+    {{#if previous_links}}
+    <section id="previousLinks">
+      <h1>Previous links</h1>
+      <ul id="previousLinks-list">
+        {{#each previous_links}}
+        <li class="previousLinks-item">
+          <a href="{{url}}" class="previousLinks-url">{{url}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+    {{/if}}
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js"></script>
+    <script src="application.js"></script>
+
+    <script async src="http://cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby -w
+
+require 'rubygems'
+require 'bundler/setup'
+
+require 'thor'
+
+classes = %w(adder builder creator publisher)
+classes.each { |klass| require_relative "../lib/#{klass}" }
+
+class CLI < Thor
+  desc "add PROJECT", "add a link to PROJECT"
+  option :description
+  option :url, required: true
+  def add project
+    description = options[:description]
+    url = options[:url]
+
+    Linker::Adder.new(description: description, project: project, url: url)
+  end
+
+  desc "build PROJECT", "compile single-serving page for PROJECT"
+  def build project
+    Linker::Builder.new(project: project)
+  end
+
+  desc "create PROJECT", "create a new project named PROJECT"
+  option :description
+  option :title, required: true
+  option :s3_bucket
+  option :s3_id, required: true
+  option :s3_key, required: true
+  def create project
+    description = options[:description]
+    title = options[:title]
+
+    s3_bucket = options[:s3_bucket] || project
+    s3_id = options[:s3_id]
+    s3_key = options[:s3_key]
+
+    Linker::Creator.new(description: description, project: project, title: title,
+                        s3_bucket: s3_bucket, s3_id: s3_id, s3_key: s3_key)
+  end
+
+  desc "publish PROJECT", "publish PROJECT to S3"
+  def publish project
+    Linker::Publisher.new(project: project)
+  end
+end
+
+CLI.start ARGV

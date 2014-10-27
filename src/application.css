@@ -1,0 +1,32 @@
+/*
+ PALETTE:
+
+ * #300030
+ * #480048
+ * #601848
+ * #91204d
+ * #c04848
+ * #e4844a
+ * #e8bf56
+ * #e2f7c3
+*/
+
+body {background-color:#fff; color:#480048; font-family:Helvetica Neue, Helvetica, Arial, sans-serif; font-size:14px; margin:0 auto; padding:25px 0; width:600px;}
+
+h1 {margin:0;}
+header h1,
+#currentLink h1 {text-align:center;}
+
+#currentLink h1 {margin-top:10px;}
+#currentLink {margin-bottom:30px;}
+#currentLink-url {color:#91204d;}
+#currentLink-description {}
+
+#currentLink-url {margin-top:40px;}
+#currentLink-url .embedly-card {display:none;}
+
+#previousLinks {margin-top:150px;}
+#previousLinks h1 {margin-bottom:10px;}
+#previousLinks-list {margin:0; padding:0 16px;}
+.previousLinks-item {}
+.previousLinks-url {}
